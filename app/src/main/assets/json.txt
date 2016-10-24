@@ -1,0 +1,100 @@
+[{
+	"email": "email0@yahoo.com",
+	"password": "pass1",
+	"userInfo": {
+		"tasks": [{
+			"subTasks": [{
+				"name": "cumpara mere",
+				"completed": false
+			}, {
+				"name": "cumpara pere",
+				"completed": true
+			}],
+			"name": "fac piata",
+			"completed": false
+		}],
+		"firstName": "Adrian",
+		"imageProfile": "imageProfile 0",
+		"jobTitle": "freelancer",
+		"lastName": "Macovei",
+		"taskCompleted": 0,
+		"taskRemaining": 1,
+		"age": 31
+	}
+
+},
+{
+	"email": "email0@yahoo.com",
+	"password": "pass1",
+	"userInfo": {
+		"tasks": [{
+			"subTasks": [{
+				"name": "cumpara voucher dota",
+				"completed": false
+			}, {
+				"name": "cumpara dota guide",
+				"completed": true
+			}],
+			"name": "fac piata",
+			"completed": false
+		}],
+		"firstName": "Dragos",
+		"imageProfile": "imageProfile 0",
+		"jobTitle": "freelancer",
+		"lastName": "Gigi",
+		"taskCompleted": 0,
+		"taskRemaining": 1,
+		"age": 31
+	}
+
+},
+{
+	"email": "email0@yahoo.com",
+	"password": "pass1",
+	"userInfo": {
+		"tasks": [{
+			"subTasks": [{
+				"name": "cumpara smochine",
+				"completed": false
+			}, {
+				"name": "cumpara acadele",
+				"completed": true
+			}],
+			"name": "fac piata",
+			"completed": false
+		}],
+		"firstName": "Tudor",
+		"imageProfile": "imageProfile 0",
+		"jobTitle": "freelancer",
+		"lastName": "Brasoveanu",
+		"taskCompleted": 0,
+		"taskRemaining": 1,
+		"age": 31
+	}
+
+},
+{
+	"email": "email0@yahoo.com",
+	"password": "pass1",
+	"userInfo": {
+		"tasks": [{
+			"subTasks": [{
+				"name": "cumpara branza",
+				"completed": false
+			}, {
+				"name": "cumpara carne pui",
+				"completed": true
+			}],
+			"name": "fac piata",
+			"completed": false
+		}],
+		"firstName": "Alex",
+		"imageProfile": "imageProfile 0",
+		"jobTitle": "freelancer",
+		"lastName": "Stan",
+		"taskCompleted": 0,
+		"taskRemaining": 1,
+		"age": 31
+	}
+
+}]
