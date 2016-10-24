@@ -3,22 +3,19 @@ package com.example.java2.taskapp.data;
 import android.content.Context;
 import android.util.Log;
 
-import com.example.java2.taskapp.model.SubTask;
-import com.example.java2.taskapp.model.Task;
 import com.example.java2.taskapp.model.User;
+import com.example.java2.taskapp.model.UserInfo;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by java2 on 10/24/2016.

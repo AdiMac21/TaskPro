@@ -1,20 +1,21 @@
 package com.example.java2.taskapp.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by java2 on 10/24/2016.
  */
 
-public class Task {
+public class Task implements Serializable {
     private String name;
     private boolean completed;
-    private ArrayList<SubTask> subtasks;
+    private ArrayList<SubTask> subTasks;
 
     public Task(String name,boolean completed,ArrayList<SubTask> subTasks){
         this.name=name;
         this.completed=completed;
-        this.subtasks=subTasks;
+        this.subTasks=subTasks;
     }
 
     public String getName() {
@@ -34,10 +35,10 @@ public class Task {
     }
 
     public ArrayList<SubTask> getSubtasks() {
-        return subtasks;
+        return subTasks;
     }
 
     public void setSubtasks(ArrayList<SubTask> subtasks) {
-        this.subtasks = subtasks;
+        this.subTasks = subtasks;
     }
 }
