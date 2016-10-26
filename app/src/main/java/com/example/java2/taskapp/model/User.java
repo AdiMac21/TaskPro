@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by java2 on 10/24/2016.
  */
 
-public class User {
+public class User implements Comparable<User> {
     private String email;
     private String password;
     private UserInfo userInfo;
@@ -39,5 +39,10 @@ public class User {
 
     public void setInfo(UserInfo info) {
         this.userInfo = info;
+    }
+
+    @Override
+    public int compareTo(User o) {
+        return this.email.compareTo(o.getEmail());
     }
 }

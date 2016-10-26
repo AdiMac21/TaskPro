@@ -16,9 +16,10 @@ import com.example.java2.taskapp.model.User;
 import com.example.java2.taskapp.model.UserInfo;
 
 import java.util.ArrayList;
+import java.util.TreeSet;
 
 public class Login extends AppCompatActivity {
-    private ArrayList<User> users;
+    private TreeSet<User> users=new TreeSet<>();
     private TextView tv_username;
     private TextView tv_password;
     private Button bt_login;
@@ -32,7 +33,9 @@ public class Login extends AppCompatActivity {
 
         setContentView(R.layout.activity_login);
         JsonParse json = new JsonParse(this);
-        users = json.getUsers();
+        ArrayList<User> temp=new ArrayList<>();
+        temp=json.getUsers();
+        users.addAll(temp);
         linkUi();
         setLisner();
     }
@@ -57,8 +60,9 @@ public class Login extends AppCompatActivity {
                 tv_username.requestFocus();
                 tv_password.requestFocus();
                 if (user == true && password == true) {
+
                     if (getUser(tv_username.getText().toString()) != null) {
-                        if (tv_password.equals(login.getPassword())) {
+                        if (tv_password.getText().toString().equals(login.getPassword())) {
 
                         } else {
                             Toast toast = Toast.makeText(Login.this, "Username or password incorrect", Toast.LENGTH_LONG);
@@ -106,13 +110,15 @@ public class Login extends AppCompatActivity {
     }
 
     private User getUser(String email) {
-        for (int i = 0; i < users.size(); i++) {
-            if (users.get(i).getEmail().equalsIgnoreCase(email)) {
-                login = users.get(i);
+        for (User a : users) {
+            if (a.getEmail().equalsIgnoreCase(email)) {
+                login = a;
                 return login;
+            }else{
+                return null;
             }
         }
-        return null;
+        return login;
     }
 
 }
