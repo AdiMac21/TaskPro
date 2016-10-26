@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">TaskApp</string>
-    <string name="welcome">Welcome, </string>
+    <string name="welcome">Welcome to TaskPro </string>
+    <string name="signin">Please enter email and password to log in </string>
     <string name="user_name">Adriana</string>
     <string name="name">   Insert valid email here</string>
     <string name="password">   Insert valid password here</string>

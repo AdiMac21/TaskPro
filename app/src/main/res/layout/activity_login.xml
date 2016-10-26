@@ -26,51 +26,43 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:text="@string/welcome"
-            android:textAlignment="textEnd"
+            android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/tv_user"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="@string/user_name"
-            android:textColor="@color/username"
-
-            android:textSize="24sp" />
+            android:textSize="28sp" />
 
 
     </LinearLayout>
 
-    <ImageView
-
-        android:id="@+id/iv_picture"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/tv_signin"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:adjustViewBounds="true"
-        android:cropToPadding="true"
-        android:scaleType="fitCenter"
-        app:srcCompat="@mipmap/ic_profile_pic2" />
+
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:text="@string/signin"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="16sp" />
 
 
     <EditText
 
         android:id="@+id/tv_username"
         android:layout_width="match_parent"
-
-
         android:layout_height="wrap_content"
+        android:paddingTop="@dimen/padding"
+        android:paddingBottom="@dimen/padding"
         android:layout_marginLeft="@dimen/activity_vertical_margin"
         android:layout_marginRight="@dimen/activity_vertical_margin"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:background="@color/colorPrimaryDark"
         android:drawableLeft="@mipmap/ic_username"
+        android:ems="20"
         android:hint="@string/name"
-        android:textAlignment="center"
         android:inputType="textEmailAddress"
+        android:textAlignment="center"
 
         android:textColor="@color/white"
 
@@ -81,18 +73,19 @@
         android:layout_width="match_parent"
 
         android:layout_height="wrap_content"
-
-
+        android:background="@color/colorPrimaryDark"
+        android:paddingTop="@dimen/padding"
+        android:paddingBottom="@dimen/padding"
         android:layout_marginLeft="@dimen/activity_vertical_margin"
         android:layout_marginRight="@dimen/activity_vertical_margin"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
 
         android:drawableLeft="@mipmap/ic_password"
-        android:textAlignment="center"
-
         android:hint="@string/password"
 
         android:inputType="textPassword"
+
+        android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="16sp" />
 
@@ -103,6 +96,7 @@
         android:layout_marginLeft="@dimen/activity_vertical_margin"
         android:layout_marginRight="@dimen/activity_vertical_margin"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:text="@string/login" />
+        android:text="@string/login"
+        android:id="@+id/bt_login"/>
 
 </LinearLayout>
