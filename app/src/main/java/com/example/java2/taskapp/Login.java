@@ -28,7 +28,7 @@ public class Login extends AppCompatActivity {
     private Button bt_login;
     private boolean user = false;
     private boolean password = false;
-    private User login;
+    private User login=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,7 +123,7 @@ public class Login extends AppCompatActivity {
                 login = a;
                 return login;
             } else {
-                return null;
+
             }
         }
         return login;

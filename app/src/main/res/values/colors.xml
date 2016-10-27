@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="white">#ffffff</color>
-    <color name="username">#71A1FF</color>
+    <color name="username">#7691f5</color>
+    <color name="taskrem">#8A6ADC</color>
 
+    <color name="taskcomtext">#BCDC6A</color>
 </resources>

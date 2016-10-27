@@ -6,4 +6,6 @@
     <string name="name">   Insert valid email here</string>
     <string name="password">   Insert valid password here</string>
     <string name="login">LOGIN </string>
+    <string name="comp">completed tasks</string>
+    <string name="rem">remaining tasks</string>
 </resources>

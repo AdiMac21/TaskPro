@@ -29,6 +29,11 @@ public class UserInfo implements Serializable {
         this.tasks = tasks;
     }
 
+    public int getTaskCompleted() {
+        return taskCompleted;
+    }
+
+
     public String getFirsName() {
         return firstName;
     }
