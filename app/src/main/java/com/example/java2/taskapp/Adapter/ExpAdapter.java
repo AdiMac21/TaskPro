@@ -13,6 +13,7 @@ import com.example.java2.taskapp.DashBoard;
 import com.example.java2.taskapp.R;
 import com.example.java2.taskapp.model.SubTask;
 import com.example.java2.taskapp.model.Task;
+import com.example.java2.taskapp.model.UserInfo;
 
 import java.util.ArrayList;
 
@@ -26,11 +27,15 @@ public class ExpAdapter extends BaseExpandableListAdapter {
 
     private ArrayList<Task> tasks;
     private Context context;
+    private UserInfo info;
 
-    public ExpAdapter(Context context, ArrayList<Task> tasks) {
 
-        this.tasks = tasks;
+    public ExpAdapter(Context context, UserInfo info) {
+
+        this.info = info;
         this.context = context;
+        tasks = info.getTasks();
+
     }
 
     @Override
@@ -116,17 +121,19 @@ public class ExpAdapter extends BaseExpandableListAdapter {
         txtListChild.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!tasks.get(groupPosition).getSubtasks().get(childPosition).isCompleted()){
+                if (!tasks.get(groupPosition).getSubtasks().get(childPosition).isCompleted()) {
                     tasks.get(groupPosition).getSubtasks().get(childPosition).setCompleted(true);
-                    boolean areAll=true;
-                    for (int i = 0; i <tasks.get(groupPosition).getSize() ; i++) {
-                        SubTask temp=tasks.get(groupPosition).getSubtasks().get(i);
-                        if(!temp.isCompleted()){
-                            areAll=false;
+                    boolean areAll = true;
+                    for (int i = 0; i < tasks.get(groupPosition).getSize(); i++) {
+                        SubTask temp = tasks.get(groupPosition).getSubtasks().get(i);
+                        if (!temp.isCompleted()) {
+                            areAll = false;
                         }
                     }
-                    if(areAll==true){
+                    if (areAll == true) {
                         tasks.get(groupPosition).setCompleted(true);
+                        info.setTaskCompleted(+1);
+                        info.setTaskRemaining(-1);
 
                     }
                     notifyDataSetChanged();
@@ -150,4 +157,8 @@ public class ExpAdapter extends BaseExpandableListAdapter {
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return true;
     }
+
+
 }
+
+

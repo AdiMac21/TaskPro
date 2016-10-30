@@ -3,6 +3,8 @@ package com.example.java2.taskapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
@@ -17,13 +19,13 @@ import java.util.TreeSet;
 
 public class DashBoard extends AppCompatActivity {
     private TreeSet<User> users = new TreeSet<>();
-    private User logged;
+    private  User logged;
     ExpandableListView list;
     private ArrayList<Task> task;
     private TextView tv_name;
     private TextView tv_jobD;
-    private TextView tv_remTask;
-    private TextView tv_compTask;
+    private  TextView tv_remTask;
+    private  TextView tv_compTask;
     private ImageView iv_pic;
     private Button button;
 
@@ -35,9 +37,16 @@ public class DashBoard extends AppCompatActivity {
         users = (TreeSet<User>) intent.getSerializableExtra("set");
         logged = (User) intent.getSerializableExtra("user");
         task = logged.getInfo().getTasks();
-        ExpAdapter adapter = new ExpAdapter(this, task);
+        ExpAdapter adapter = new ExpAdapter(this, logged.getInfo());
         list = (ExpandableListView) findViewById(R.id.expand);
         list.setAdapter(adapter);
+        list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tv_compTask.setText( Integer.toString(logged.getInfo().getTaskCompleted()));
+                tv_remTask.setText(Integer.toString(logged.getInfo().getTaskRemaining()));
+            }
+        });
         linkUi();
         populateFirst();
     }
@@ -57,6 +66,7 @@ public class DashBoard extends AppCompatActivity {
         iv_pic = (ImageView) findViewById(R.id.iv_pic);
         button = (Button) findViewById(R.id.button);
     }
+
 
 
 }
