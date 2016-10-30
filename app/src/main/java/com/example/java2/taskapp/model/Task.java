@@ -41,4 +41,7 @@ public class Task implements Serializable {
     public void setSubtasks(ArrayList<SubTask> subtasks) {
         this.subTasks = subtasks;
     }
-}
+
+public int getSize(){
+    return subTasks.size();
+}}

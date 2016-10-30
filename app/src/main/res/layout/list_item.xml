@@ -9,11 +9,12 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textSize="16dip"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
         android:layout_marginLeft="@dimen/activity_vertical_margin"
         android:textColor="@color/username"
         android:paddingLeft="10dp"
+        android:drawablePadding="5dp"
         />
 
 </LinearLayout>

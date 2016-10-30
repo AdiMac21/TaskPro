@@ -15,8 +15,8 @@
         android:textSize="18dp"
         android:textColor="#214669"
         android:drawableRight="@mipmap/ic_arrow_down"
-        android:drawableLeft="@drawable/circli"
-        android:drawablePadding="10dp"
+
+        android:drawablePadding="5dp"
         />
 
 </LinearLayout>

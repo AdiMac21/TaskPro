@@ -60,7 +60,7 @@
 				"name": "cumpara acadele",
 				"completed": true
 			}],
-			"name": "fac piata",
+			"name": "De facut piata",
 			"completed": false
 		}],
 		"firstName": "Tudor",

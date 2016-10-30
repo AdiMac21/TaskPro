@@ -16,18 +16,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3">
-<Button
-    android:layout_width="70dp"
-    android:layout_height="70dp"
-    android:background="@drawable/circli"
-    android:text="+"
-    android:textSize="20sp"
-    android:textColor="@color/colorPrimaryDark"
-    app:layout_marginTopPercent="48%"
-    app:layout_marginLeftPercent="41%"
-    android:id="@+id/button"
-
-    ></Button>
 
 
 
@@ -44,37 +32,36 @@
                 android:id="@+id/iv_pic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@mipmap/ic_avatar"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/activity_vertical_margin"/>
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:background="@mipmap/ic_avatar" />
 
             <TextView
                 android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/iv_pic"
                 android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_toRightOf="@+id/iv_pic"
                 android:text="Adrian Macovei"
-                android:textSize="24sp"
-                android:layout_marginLeft="@dimen/activity_vertical_margin"/>
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/tv_jobD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tv_name"
                 android:layout_below="@+id/tv_name"
                 android:text="Freelancer"
-                android:textSize="16sp"
-                android:layout_alignLeft="@+id/tv_name"
-                />
+                android:textSize="16sp" />
         </RelativeLayout>
 
         <LinearLayout
+            android:id="@+id/linn"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_below="@+id/lin1"
             android:layout_weight="1"
-            android:id="@+id/linn"
             android:orientation="horizontal"
             app:layout_heightPercent="20%">
 
@@ -84,11 +71,10 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/username"
-                android:text="12"
-                android:textSize="28sp"
                 android:gravity="bottom"
+                android:text="12"
                 android:textAlignment="center"
-                />
+                android:textSize="28sp" />
 
             <TextView
                 android:id="@+id/tv_comptask"
@@ -96,21 +82,21 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/taskrem"
-                android:text="20"
-
-                android:textSize="28sp"
                 android:gravity="bottom"
-                android:textAlignment="center"/>
+
+                android:text="20"
+                android:textAlignment="center"
+                android:textSize="28sp" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_below="@+id/linn"
             android:layout_weight="1"
             android:orientation="horizontal"
-            app:layout_heightPercent="20%"
-            >
+            app:layout_heightPercent="20%">
 
             <TextView
                 android:id="@+id/tv_remtasks"
@@ -118,11 +104,10 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/username"
-                android:text="@string/rem"
-                android:textSize="16sp"
                 android:gravity="center_vertical"
+                android:text="@string/rem"
                 android:textAlignment="center"
-                />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tv_comptasks"
@@ -130,21 +115,33 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/taskrem"
-                android:text="@string/comp"
-
-                android:textSize="16sp"
                 android:gravity="center_vertical"
-                android:textAlignment="center"/>
+
+                android:text="@string/comp"
+                android:textAlignment="center"
+                android:textSize="16sp" />
 
         </LinearLayout>
+        <Button
+            android:id="@+id/button"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@drawable/circli"
+            android:text="+"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            app:layout_marginLeftPercent="41%"
+            app:layout_marginTopPercent="48%"
+
+            ></Button>
     </android.support.percent.PercentRelativeLayout>
 
 
     <ExpandableListView
+        android:id="@+id/expand"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
-        android:id="@+id/expand"
         android:background="@color/white"
         android:groupIndicator="@null">
 
