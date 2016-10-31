@@ -67,6 +67,7 @@ public class AddTask extends AppCompatActivity {
 
         }
         Task task=new Task(tv_taskName.getText().toString(),false,subtask);
+        System.out.println();
         super.onBackPressed();
     }
 }
