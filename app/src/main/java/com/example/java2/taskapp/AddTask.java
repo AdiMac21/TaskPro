@@ -1,6 +1,8 @@
 package com.example.java2.taskapp;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +17,7 @@ import android.widget.TextView;
 import com.example.java2.taskapp.model.SubTask;
 import com.example.java2.taskapp.model.Task;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class AddTask extends AppCompatActivity {
@@ -67,7 +70,10 @@ public class AddTask extends AppCompatActivity {
 
         }
         Task task=new Task(tv_taskName.getText().toString(),false,subtask);
-        System.out.println();
+        Intent intent=new Intent();
+        intent.putExtra("result",task);
+        setResult(Activity.RESULT_OK,intent);
+//        setResult(Activity.RESULT_CANCELED, returnIntent);
         super.onBackPressed();
     }
 }

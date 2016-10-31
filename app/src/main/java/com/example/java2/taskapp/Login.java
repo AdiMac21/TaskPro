@@ -28,7 +28,7 @@ public class Login extends AppCompatActivity {
     private Button bt_login;
     private boolean user = false;
     private boolean password = false;
-    private User login=null;
+    private User login = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -19,15 +19,17 @@ import java.util.TreeSet;
 
 public class DashBoard extends AppCompatActivity {
     private TreeSet<User> users = new TreeSet<>();
-    private  User logged;
+    private User logged;
     ExpandableListView list;
     private ArrayList<Task> task;
     private TextView tv_name;
     private TextView tv_jobD;
-    private  TextView tv_remTask;
-    private  TextView tv_compTask;
+    private TextView tv_remTask;
+    private TextView tv_compTask;
     private ImageView iv_pic;
     private Button button;
+    static final int REQ = 1;
+    private ExpAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +41,7 @@ public class DashBoard extends AppCompatActivity {
         task = logged.getInfo().getTasks();
         linkUi();
         populateFirst();
-        ExpAdapter adapter = new ExpAdapter(this, logged.getInfo(),tv_remTask,tv_compTask);
+        adapter = new ExpAdapter(this, logged.getInfo(), tv_remTask, tv_compTask);
         list = (ExpandableListView) findViewById(R.id.expand);
         list.setAdapter(adapter);
         setListener();
@@ -51,8 +53,8 @@ public class DashBoard extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(DashBoard.this,AddTask.class);
-                startActivity(intent);
+                Intent intent = new Intent(DashBoard.this, AddTask.class);
+                startActivityForResult(intent, REQ);
             }
         });
     }
@@ -60,7 +62,7 @@ public class DashBoard extends AppCompatActivity {
     private void populateFirst() {
         tv_name.setText(logged.getInfo().getLastName().concat(" ").concat(logged.getInfo().getFirsName()));
         tv_jobD.setText(logged.getInfo().getJobTitle());
-        tv_compTask.setText( Integer.toString(logged.getInfo().getTaskCompleted()));
+        tv_compTask.setText(Integer.toString(logged.getInfo().getTaskCompleted()));
         tv_remTask.setText(Integer.toString(logged.getInfo().getTaskRemaining()));
     }
 
@@ -73,6 +75,19 @@ public class DashBoard extends AppCompatActivity {
         button = (Button) findViewById(R.id.button);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
+        if (requestCode == REQ) {
+
+            if (resultCode == RESULT_OK) {
+                Task task;
+                task = (Task) data.getSerializableExtra("result");
+                logged.getInfo().getTasks().add(task);
+                adapter.notifyDataSetChanged();
+                //todo inrease in tasks remaining
+            }
+        }
+    }
 
 }
