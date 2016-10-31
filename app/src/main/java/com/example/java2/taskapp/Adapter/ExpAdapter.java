@@ -28,13 +28,17 @@ public class ExpAdapter extends BaseExpandableListAdapter {
     private ArrayList<Task> tasks;
     private Context context;
     private UserInfo info;
+    private TextView rem;
+    private TextView comp;
 
 
-    public ExpAdapter(Context context, UserInfo info) {
+    public ExpAdapter(Context context, UserInfo info, TextView rem, TextView comp) {
 
         this.info = info;
         this.context = context;
         tasks = info.getTasks();
+        this.rem = rem;
+        this.comp = comp;
 
     }
 
@@ -118,6 +122,7 @@ public class ExpAdapter extends BaseExpandableListAdapter {
                 .findViewById(R.id.lblListItem);
 
         txtListChild.setText(childText);
+
         txtListChild.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,13 +133,15 @@ public class ExpAdapter extends BaseExpandableListAdapter {
                         SubTask temp = tasks.get(groupPosition).getSubtasks().get(i);
                         if (!temp.isCompleted()) {
                             areAll = false;
+
                         }
                     }
                     if (areAll == true) {
                         tasks.get(groupPosition).setCompleted(true);
                         info.setTaskCompleted(+1);
                         info.setTaskRemaining(-1);
-
+                        rem.setText(info.getTaskRemaining());
+                        comp.setText(info.getTaskCompleted());
                     }
                     notifyDataSetChanged();
                 }

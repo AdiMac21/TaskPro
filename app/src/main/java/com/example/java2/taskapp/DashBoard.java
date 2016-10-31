@@ -37,18 +37,13 @@ public class DashBoard extends AppCompatActivity {
         users = (TreeSet<User>) intent.getSerializableExtra("set");
         logged = (User) intent.getSerializableExtra("user");
         task = logged.getInfo().getTasks();
-        ExpAdapter adapter = new ExpAdapter(this, logged.getInfo());
-        list = (ExpandableListView) findViewById(R.id.expand);
-        list.setAdapter(adapter);
-        list.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tv_compTask.setText( Integer.toString(logged.getInfo().getTaskCompleted()));
-                tv_remTask.setText(Integer.toString(logged.getInfo().getTaskRemaining()));
-            }
-        });
         linkUi();
         populateFirst();
+        ExpAdapter adapter = new ExpAdapter(this, logged.getInfo(),tv_remTask,tv_compTask);
+        list = (ExpandableListView) findViewById(R.id.expand);
+        list.setAdapter(adapter);
+
+
     }
 
     private void populateFirst() {
