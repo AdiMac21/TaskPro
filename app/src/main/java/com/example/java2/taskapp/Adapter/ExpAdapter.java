@@ -138,8 +138,8 @@ public class ExpAdapter extends BaseExpandableListAdapter {
                     }
                     if (areAll == true) {
                         tasks.get(groupPosition).setCompleted(true);
-                        info.setTaskCompleted(+1);
-                        info.setTaskRemaining(-1);
+                        info.setTaskCompleted(info.getTaskCompleted()+1);
+                        info.setTaskRemaining(info.getTaskRemaining()-1);
                         rem.setText(Integer.toString(info.getTaskRemaining()));
                         comp.setText(Integer.toString(info.getTaskCompleted()));
                     }
