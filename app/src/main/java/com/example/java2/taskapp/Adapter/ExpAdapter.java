@@ -140,8 +140,8 @@ public class ExpAdapter extends BaseExpandableListAdapter {
                         tasks.get(groupPosition).setCompleted(true);
                         info.setTaskCompleted(+1);
                         info.setTaskRemaining(-1);
-                        rem.setText(info.getTaskRemaining());
-                        comp.setText(info.getTaskCompleted());
+                        rem.setText(Integer.toString(info.getTaskRemaining()));
+                        comp.setText(Integer.toString(info.getTaskCompleted()));
                     }
                     notifyDataSetChanged();
                 }
