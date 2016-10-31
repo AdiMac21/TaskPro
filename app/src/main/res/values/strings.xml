@@ -8,4 +8,6 @@
     <string name="login">LOGIN </string>
     <string name="comp">completed tasks</string>
     <string name="rem">remaining tasks</string>
+    <string name="task">Insert Task Name</string>
+    <string name="subt">Insert Subtask Name</string>
 </resources>

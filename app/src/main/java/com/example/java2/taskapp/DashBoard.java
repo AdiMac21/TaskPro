@@ -42,8 +42,19 @@ public class DashBoard extends AppCompatActivity {
         ExpAdapter adapter = new ExpAdapter(this, logged.getInfo(),tv_remTask,tv_compTask);
         list = (ExpandableListView) findViewById(R.id.expand);
         list.setAdapter(adapter);
+        setListener();
 
 
+    }
+
+    private void setListener() {
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(DashBoard.this,AddTask.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void populateFirst() {

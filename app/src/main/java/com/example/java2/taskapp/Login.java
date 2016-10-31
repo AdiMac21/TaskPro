@@ -41,6 +41,10 @@ public class Login extends AppCompatActivity {
         users.addAll(temp);
         linkUi();
         setLisner();
+
+        //todo just for test
+        tv_username.setText("email1@yahoo.com");
+        tv_password.setText("passs1");
     }
 
     private void setLisner() {
