@@ -43,7 +43,7 @@ public class Login extends AppCompatActivity {
         linkUi();
         setLisner();
 
-        //todo just for test
+
         tv_username.setText("email1@yahoo.com");
         tv_password.setText("passs1");
     }

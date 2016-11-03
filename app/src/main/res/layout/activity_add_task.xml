@@ -51,5 +51,15 @@
         android:textSize="20sp"
 
          />
+    <Button
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:text="S"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:background="@drawable/circli"
+        android:textColor="@color/colorPrimaryDark"
+        android:id="@+id/btn_save"
+        android:layout_gravity="bottom|left"/>
 </FrameLayout>
 </LinearLayout>

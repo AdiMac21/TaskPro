@@ -93,7 +93,9 @@ public class DashBoard extends AppCompatActivity {
                 task = (Task) data.getSerializableExtra("result");
                 logged.getInfo().getTasks().add(task);
                 adapter.notifyDataSetChanged();
-                //todo inrease in tasks remaining
+                logged.getInfo().setTaskRemaining(logged.getInfo().getTaskRemaining()+1);
+                tv_remTask.setText(Integer.toString(logged.getInfo().getTaskRemaining()));
+
             }
         }
     }
