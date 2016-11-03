@@ -64,7 +64,7 @@
 			"completed": false
 		}],
 		"firstName": "Tudor",
-		"imageProfile": "imageProfile 0",
+		"imageProfile": "http://chainimage.com/images/to-download-fantasy-girl-with-red-hair-wallpaper-click-on-full-size.jpg",
 		"jobTitle": "freelancer",
 		"lastName": "Brasoveanu",
 		"taskCompleted": 0,

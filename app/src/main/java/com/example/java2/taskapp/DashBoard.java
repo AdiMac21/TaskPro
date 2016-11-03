@@ -1,6 +1,8 @@
 package com.example.java2.taskapp;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,8 +13,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.java2.taskapp.Adapter.ExpAdapter;
+import com.example.java2.taskapp.data.CircleTransform;
 import com.example.java2.taskapp.model.Task;
 import com.example.java2.taskapp.model.User;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.TreeSet;
@@ -31,6 +35,7 @@ public class DashBoard extends AppCompatActivity {
     static final int REQ = 1;
     private ExpAdapter adapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +50,9 @@ public class DashBoard extends AppCompatActivity {
         list = (ExpandableListView) findViewById(R.id.expand);
         list.setAdapter(adapter);
         setListener();
+
+        Picasso.with(DashBoard.this)
+                .load(logged.getInfo().getImageProfile()).resize(300, 300).transform(new CircleTransform()).into(iv_pic);
 
 
     }

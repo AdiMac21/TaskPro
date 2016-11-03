@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -76,6 +77,8 @@ public class Login extends AppCompatActivity {
                             intent.putExtra("set", users);
                             intent.putExtra("user", login);
                             startActivity(intent);
+                            user=false;
+                            password=false;
                         } else {
                             Toast toast = Toast.makeText(Login.this, "Username or password incorrect", Toast.LENGTH_LONG);
                             toast.show();
@@ -133,4 +136,9 @@ public class Login extends AppCompatActivity {
         return login;
     }
 
+    @Override
+    protected void onResume() {
+        login=null;
+        super.onResume();
+    }
 }

@@ -25,6 +25,7 @@ public class AddTask extends AppCompatActivity {
     TextView tv_taskName;
     Button add;
     private LinearLayout layout;
+    private TextView temp2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class AddTask extends AppCompatActivity {
                 layout = (LinearLayout) findViewById(R.id.linlay);
                 temp.setHint(R.string.subt);
                 temp.setTextSize(16);
-
+                temp2 = temp;
                 temp.setId(layout.getChildCount());
                 temp.setTextColor(ContextCompat.getColor(AddTask.this, R.color.white));
                 temp.setBackgroundColor(ContextCompat.getColor(AddTask.this, R.color.subtask));
@@ -62,18 +63,24 @@ public class AddTask extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        ArrayList<SubTask> subtask=new ArrayList<>();
-        for (int i = 0; i <layout.getChildCount() ; i++) {
-            TextView temp= (TextView) layout.getChildAt(i);
-            SubTask tempSubtask=new SubTask(temp.getText().toString(),false);
+        ArrayList<SubTask> subtask = new ArrayList<>();
+        for (int i = 0; i < layout.getChildCount(); i++) {
+            TextView temp = (TextView) layout.getChildAt(i);
+            SubTask tempSubtask = new SubTask(temp.getText().toString(), false);
             subtask.add(tempSubtask);
 
         }
-        Task task=new Task(tv_taskName.getText().toString(),false,subtask);
-        Intent intent=new Intent();
-        intent.putExtra("result",task);
-        setResult(Activity.RESULT_OK,intent);
-//        setResult(Activity.RESULT_CANCELED, returnIntent);
+        Task task = new Task(tv_taskName.getText().toString(), false, subtask);
+        Intent intent = new Intent();
+        if (tv_taskName.getText().toString().trim().equals("") || temp2.getText().toString().trim().equals("")||temp2==null) {
+            intent.putExtra("result", task);
+            setResult(Activity.RESULT_CANCELED, intent);
+        } else {
+            intent.putExtra("result", task);
+            setResult(Activity.RESULT_OK, intent);
+
+        }
+
         super.onBackPressed();
     }
 }

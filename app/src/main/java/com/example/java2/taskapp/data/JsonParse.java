@@ -41,7 +41,7 @@ public class JsonParse {
     private String read() {
         StringBuilder buf = new StringBuilder();
         InputStream json = null;
-        String TAG = "12";
+
 
         try {
             json = context.getAssets().open("json.txt");
@@ -54,23 +54,18 @@ public class JsonParse {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Log.d(TAG, "buf= " + buf.toString());
+
         return buf.toString();
 
     }
     private ArrayList<User> getUsers(String a) {
-        String TAG = "bla";
+
         Gson gson = new Gson();
-        try {
-            JSONArray jsonArray = new JSONArray(a);
-            Log.d(TAG, "jsonArray= " + jsonArray.toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+
         ArrayList<User> contacts = gson.fromJson(a, new TypeToken<ArrayList<User>>() {
 
         }.getType());
-        Log.d(TAG, "contacts " + contacts.toString());
+
         return contacts;
     }
 }
