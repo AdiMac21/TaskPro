@@ -14,11 +14,13 @@ import android.widget.TextView;
 
 import com.example.java2.taskapp.Adapter.ExpAdapter;
 import com.example.java2.taskapp.data.CircleTransform;
+import com.example.java2.taskapp.data.JsonParse;
 import com.example.java2.taskapp.model.Task;
 import com.example.java2.taskapp.model.User;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.TreeSet;
 
 public class DashBoard extends AppCompatActivity {
@@ -81,6 +83,23 @@ public class DashBoard extends AppCompatActivity {
         tv_compTask = (TextView) findViewById(R.id.tv_comptask);
         iv_pic = (ImageView) findViewById(R.id.iv_pic);
         button = (Button) findViewById(R.id.button);
+    }
+
+    @Override
+    protected void onPause() {
+        Iterator iterator=users.iterator();
+        while(iterator.hasNext()){
+            User temp= (User) iterator.next();
+            if(logged.getEmail().equals(temp.getEmail())){
+                iterator.remove();
+            }
+        }
+        users.add(logged);
+        ArrayList<User> tempArray=new ArrayList<>();
+        tempArray.addAll(users);
+        JsonParse parse=new JsonParse(DashBoard.this);
+        parse.writeJson(tempArray);
+        super.onPause();
     }
 
     @Override

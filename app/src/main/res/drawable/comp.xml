@@ -4,7 +4,7 @@
     android:shape="oval">
 
 
-    <solid android:color="@color/taskrem" />
+    <solid android:color="@color/taskcomp" />
     <corners
         android:bottomLeftRadius="12.0dip"
         android:bottomRightRadius="12.0dip"

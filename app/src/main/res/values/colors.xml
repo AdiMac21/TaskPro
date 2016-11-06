@@ -5,7 +5,9 @@
     <color name="colorAccent">#FF4081</color>
     <color name="white">#ffffff</color>
     <color name="username">#7691f5</color>
-    <color name="taskrem">#8A6ADC</color>
+    <color name="taskrem">#e48080</color>
     <color name="subtask">#8895c1</color>
     <color name="taskcomtext">#BCDC6A</color>
+    <color name="taskcomp">#80e480</color>
+    <color name="back">#8080e4</color>
 </resources>

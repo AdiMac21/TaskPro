@@ -1,20 +1,34 @@
 package com.example.java2.taskapp.data;
 
 import android.content.Context;
+import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 
+import com.example.java2.taskapp.DashBoard;
 import com.example.java2.taskapp.model.User;
 import com.example.java2.taskapp.model.UserInfo;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 /**
@@ -22,6 +36,7 @@ import java.util.ArrayList;
  */
 
 public class JsonParse {
+
     private ArrayList<User> users;
     private Context context;
     private String reader;
@@ -33,11 +48,26 @@ public class JsonParse {
 
     public JsonParse(Context context) {
         this.context = context;
-        reader=this.read();
-        users=this.getUsers(reader);
+        reader = this.read();
+        users = this.getUsers(reader);
 
     }
 
+
+    public void writeJson(ArrayList<User> users) {
+        try {
+            Writer writer = new FileWriter(String.valueOf(context.getAssets().open("json.txt")));
+            Gson gson = new GsonBuilder().create();
+            gson.toJson(users, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+
+    @NonNull
     private String read() {
         StringBuilder buf = new StringBuilder();
         InputStream json = null;
@@ -58,6 +88,7 @@ public class JsonParse {
         return buf.toString();
 
     }
+
     private ArrayList<User> getUsers(String a) {
 
         Gson gson = new Gson();

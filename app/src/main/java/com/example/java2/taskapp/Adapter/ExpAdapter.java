@@ -144,6 +144,19 @@ public class ExpAdapter extends BaseExpandableListAdapter {
                         comp.setText(Integer.toString(info.getTaskCompleted()));
                     }
                     notifyDataSetChanged();
+                }else{
+
+                    tasks.get(groupPosition).getSubtasks().get(childPosition).setCompleted(false);
+
+                    if(tasks.get(groupPosition).isCompleted()){
+                        tasks.get(groupPosition).setCompleted(false);
+                        info.setTaskCompleted(info.getTaskCompleted()-1);
+                        info.setTaskRemaining(info.getTaskRemaining()+1);
+                        rem.setText(Integer.toString(info.getTaskRemaining()));
+                        comp.setText(Integer.toString(info.getTaskCompleted()));
+                        
+                    }
+                    notifyDataSetChanged();
                 }
             }
         });
