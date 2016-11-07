@@ -92,6 +92,7 @@ public class DashBoard extends AppCompatActivity {
             User temp= (User) iterator.next();
             if(logged.getEmail().equals(temp.getEmail())){
                 iterator.remove();
+                break;
             }
         }
         users.add(logged);
