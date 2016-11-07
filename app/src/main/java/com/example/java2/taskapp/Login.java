@@ -139,6 +139,10 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onResume() {
         login=null;
+        JsonParse json = new JsonParse(this);
+        ArrayList<User> temp = new ArrayList<>();
+        temp = json.getUsers();
+        users.addAll(temp);
         super.onResume();
     }
 }

@@ -1,34 +1,18 @@
 package com.example.java2.taskapp.data;
 
 import android.content.Context;
-import android.os.Build;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
-import android.util.Log;
 
-import com.example.java2.taskapp.DashBoard;
 import com.example.java2.taskapp.model.User;
-import com.example.java2.taskapp.model.UserInfo;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 /**
@@ -42,61 +26,78 @@ public class JsonParse {
     private String reader;
 
 
+    public JsonParse(Context context) {
+        this.context = context;
+
+
+    }
+
     public ArrayList<User> getUsers() {
+        reader = this.read();
+        users = this.getUsers(reader);
         return users;
     }
 
-    public JsonParse(Context context) {
-        this.context = context;
-        reader = this.read();
-        users = this.getUsers(reader);
-
-    }
-
-
     public void writeJson(ArrayList<User> users) {
         try {
-            Writer writer = new FileWriter(String.valueOf(context.getAssets().open("json.txt")));
+            FileOutputStream writer = context.openFileOutput("json.txt", Context.MODE_PRIVATE);
             Gson gson = new GsonBuilder().create();
-            gson.toJson(users, writer);
+            String output = gson.toJson(users);
+            writer.write(output.getBytes());
+            writer.flush();
+            writer.close();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
-
 
 
     @NonNull
     private String read() {
         StringBuilder buf = new StringBuilder();
         InputStream json = null;
+        InputStream json2 = null;
 
 
         try {
-            json = context.getAssets().open("json.txt");
-            BufferedReader in = new BufferedReader(new InputStreamReader(json, "UTF-8"));
+            json2 = context.openFileInput("json.txt");
+            BufferedReader in = new BufferedReader(new InputStreamReader(json2, "UTF-8"));
             String str;
             while ((str = in.readLine()) != null) {
                 buf.append(str);
             }
             in.close();
+
         } catch (IOException e) {
-            e.printStackTrace();
+            try {
+                json = context.getAssets().open("json.txt");
+
+                BufferedReader in = new BufferedReader(new InputStreamReader(json, "UTF-8"));
+                String str;
+                while ((str = in.readLine()) != null) {
+                    buf.append(str);
+                }
+                in.close();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+
+
+
         }
-
         return buf.toString();
-
     }
 
-    private ArrayList<User> getUsers(String a) {
+        private ArrayList<User> getUsers (String a){
 
-        Gson gson = new Gson();
+            Gson gson = new Gson();
 
-        ArrayList<User> contacts = gson.fromJson(a, new TypeToken<ArrayList<User>>() {
+            ArrayList<User> contacts = gson.fromJson(a, new TypeToken<ArrayList<User>>() {
 
-        }.getType());
+            }.getType());
 
-        return contacts;
+            return contacts;
+        }
     }
-}
